@@ -60,6 +60,38 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## 📊 Generated Datasets
+
+The project includes **12 comprehensive datasets** for testing your implementation:
+
+### Simple Linear Datasets (1D)
+- **Low/Medium/High Noise**: 1,000 samples each with varying noise levels
+- **Small Dataset**: 20 samples for edge case testing
+- **Large Dataset**: 50,000 samples for performance testing
+
+### Multivariate Datasets
+- **5-Feature Dataset**: 1,500 samples with known coefficients
+- **Housing Prices**: 2,000 samples with realistic features
+- **Large Multivariate**: 5,000 samples, 10 features
+
+### Special Cases
+- **Data with Outliers**: 800 samples with 8% outliers
+- **Heteroscedastic Data**: Non-constant variance
+- **Time Series**: Linear trend with seasonality
+- **Polynomial Data**: Degree-3 polynomial for overfitting tests
+
+### Quick Dataset Usage
+```python
+from data.data_loader import load_dataset, split_data
+
+# Load any dataset
+X, y = load_dataset('simple_linear_low_noise.csv')
+X_train, X_test, y_train, y_test = split_data(X, y)
+
+# Load with feature names
+X, y, names = load_dataset('housing_prices.csv', return_feature_names=True)
+```
+
 ## 📊 Features to Implement
 
 ### Core Features
